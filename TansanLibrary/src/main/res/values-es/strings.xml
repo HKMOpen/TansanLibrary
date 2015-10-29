@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_version">App Versión :</string>
+    <string name="cancel">Cancelar</string>
+    <string name="new_version">Nueva Versión :</string>
+    <string name="close">Cerca</string>
+    <string name="confirm">Confirmar</string>
+    <string name="contact_us">Contáctenos</string>
+    <string name="kakaotalk">KakaoTalk</string>
+    <string name="mail">Correo</string>
+    <string name="version_info">Información de la versión</string>
+    <string name="update">Actualización</string>
+    <string name="billing_contact">Facturación Contacto :</string>
+    <string name="general_contact">Común Contacto : </string>
+</resources>

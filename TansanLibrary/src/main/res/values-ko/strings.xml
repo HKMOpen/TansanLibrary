@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_version">현재버전 : </string>
+    <string name="new_version">최신버전 : </string>
+    <string name="version_info">버전정보</string>
+    <string name="contact_us">문의하기</string>
+    <string name="kakaotalk">카카오톡</string>
+    <string name="mail">메일</string>
+    <string name="cancel">취소</string>
+    <string name="confirm">확인</string>
+    <string name="close">닫기</string>
+    <string name="update">업데이트</string>
+    <string name="billing_contact">결제 문의 : </string>
+    <string name="general_contact">일반 문의 : </string>
+</resources>

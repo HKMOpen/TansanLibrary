@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="TranslucentTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:actionBarStyle" tools:targetApi="14">@style/TansanActionBar</item>
+        <item name="android:colorPrimary" tools:targetApi="21">#ffc5cdfb</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="21">#ffc5cdfb</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">#ccc5cdfb</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="TranslucentWeMomTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:actionBarStyle" tools:targetApi="14">@style/WeMomActionBar</item>
+        <item name="android:colorPrimary" tools:targetApi="21">#ffc5cdfb</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="21">#ffc5cdfb</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+        <item name="android:statusBarColor" tools:targetApi="21">#ccc5cdfb</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="TansanActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">#80c5cdfb</item>
+
+    </style>
+    <style name="WeMomActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">#80fbc5c5</item>
+
+    </style>
+
+</resources>

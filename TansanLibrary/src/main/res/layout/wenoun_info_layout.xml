@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015. WeNoun™. TANSAN, Since 2014.
+  ~ Code By Jey.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55000000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <ImageView
+            android:clickable="true"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:padding="5dip"
+            android:src="@drawable/btn_exit"
+            android:onClick="exitAct"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dip"
+            android:src="@drawable/logo"
+            android:layout_margin="10dip"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="goHomepage"
+            android:gravity="center"
+            android:textColor="#FFFFFFFF"
+            android:text="http://www.wenoun.in"
+            android:layout_margin="10dip"
+            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:text="@string/general_contact"/>
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:clickable="true"
+                android:onClick="sendNorContact"
+                android:text="wenoun@wenoun.in"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:text="@string/billing_contact"/>
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#FFFFFFFF"
+                android:clickable="true"
+                android:onClick="sendBilContact"
+                android:text="billing@wenoun.in"/>
+        </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dip">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"
+                android:text="Copyright(c) by TANSAN since 2013."/>
+        </LinearLayout>
+
+
+</LinearLayout>

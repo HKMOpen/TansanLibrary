@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="20dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_white_bg"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/corner_title_tansan_bg"
+            android:id="@+id/title_layout">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="5dip"
+                android:gravity="center"
+                android:text="@string/contact_us"
+                android:textStyle="bold"
+                android:id="@+id/title_tv"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:minEms="8"
+                android:text="@string/kakaotalk"
+                android:textColor="@color/black"
+                android:padding="5dip"
+                android:background="@drawable/tr_selector"
+                android:clickable="true"
+                android:id="@+id/kakaotalk"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/tblue"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="10dip"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="@string/mail"
+                android:textColor="@color/black"
+                android:background="@drawable/tr_selector"
+                android:clickable="true"
+                android:minEms="8"
+                android:id="@+id/mail"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

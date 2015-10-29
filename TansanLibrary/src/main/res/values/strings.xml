@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_version">AppVersion : </string>
+    <string name="new_version">NewVersion :</string>
+    <string name="version_info">VersionInfo</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="mail">Mail</string>
+    <string name="kakaotalk">KakaoTalk</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+    <string name="update">Update</string>
+    <string name="billing_contact">Billing Contact :</string>
+    <string name="general_contact">Common Contact : </string>
+</resources>

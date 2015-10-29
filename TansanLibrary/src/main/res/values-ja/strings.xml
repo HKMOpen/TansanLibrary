@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kakaotalk">KakaoTalk</string>
+    <string name="app_version">アプリ バージョン : </string>
+    <string name="cancel">キャンセル</string>
+    <string name="confirm">確認</string>
+    <string name="close">クローズ</string>
+    <string name="contact_us">お問い合わせ</string>
+    <string name="mail">電子メール</string>
+    <string name="new_version">新しいバージョン : </string>
+    <string name="version_info">バージョン情報</string>
+    <string name="update">アップデート</string>
+    <string name="billing_contact">請求お問合せ : </string>
+    <string name="general_contact">一般お問合せ :</string>
+</resources>
