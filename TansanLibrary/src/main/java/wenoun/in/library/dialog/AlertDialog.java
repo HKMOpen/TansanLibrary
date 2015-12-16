@@ -13,9 +13,6 @@ public class AlertDialog extends BaseDialog {
 	public static final int STYLE_TANSAN=0;
 	public static final int STYLE_WEMOM=1;
 	private int styleId=R.style.TranslucentTheme;
-	public interface OnCloseClickListener{
-		public void onClick(AlertDialog d, View v);
-	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		ctx.setTheme(styleId);
@@ -76,7 +73,7 @@ public class AlertDialog extends BaseDialog {
 			}
 		});
 	}
-	OnCloseClickListener closeClickListener=null;
+	TDialogInterface.OnButtonClickListener closeClickListener=null;
 	public AlertDialog setTitle(String str){
 		titleStr=str;
 		return this;
@@ -85,7 +82,7 @@ public class AlertDialog extends BaseDialog {
 		msgStr=str;
 		return this;
 	}
-	public AlertDialog setClose(String str, final OnCloseClickListener closeClickListener){
+	public AlertDialog setClose(String str, final TDialogInterface.OnButtonClickListener closeClickListener){
 		this.closeClickListener=closeClickListener;
 		this.closeStr=str;
 

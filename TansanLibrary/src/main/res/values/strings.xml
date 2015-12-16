@@ -11,4 +11,6 @@
     <string name="update">Update</string>
     <string name="billing_contact">Billing Contact :</string>
     <string name="general_contact">Common Contact : </string>
+    <string name="on_str" translatable="false">ON</string>
+    <string name="off_str" translatable="false">OFF</string>
 </resources>

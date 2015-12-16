@@ -6,9 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import android.view.View;
 
-public class Util {
+public class ImageUtil {
 	private static final int corner=10; 
 	public static int PxToDp(Context ctx,int px) {
 		DisplayMetrics dm = ctx.getResources().getDisplayMetrics();

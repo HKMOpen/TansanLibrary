@@ -1,8 +1,5 @@
 package wenoun.in.library.dialog;
 
-import java.util.ArrayList;
-
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,17 +12,17 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.widget.Toast;
+import java.util.ArrayList;
 
-import wenoun.in.library.util.Util;
+import wenoun.in.library.util.ImageUtil;
 
-public class SelectDialog extends Dialog {
-	private boolean newApi= Util.checkApi();
-	public interface OnItemSelectListener{
-		public void onSelect(SelectDialog dialog, View v, int position);
-	}
-	OnItemSelectListener mOnItemSelectListener;
-	public SelectDialog setOnItemSelectListener(OnItemSelectListener mOnItemSelectListener){
+public class SelectDialog extends BaseDialog {
+	private boolean newApi= ImageUtil.checkApi();
+//	public interface OnItemSelectListener{
+//		public void onSelect(SelectDialog dialog, View v, int position);
+//	}
+	TDialogInterface.OnItemSelectListener mOnItemSelectListener;
+	public SelectDialog setOnItemSelectListener(TDialogInterface.OnItemSelectListener mOnItemSelectListener){
 //		setDepart(false);
 		this.mOnItemSelectListener=mOnItemSelectListener;
 		return this;
@@ -50,27 +47,27 @@ public class SelectDialog extends Dialog {
 		this.ctx = context;
 		//this.getVersion=notFirst;
 	}
-	public SelectDialog(Context context, ArrayList<String> titleList, OnItemSelectListener mOnItemSelectListener) {
+	public SelectDialog(Context context, ArrayList<String> titleList, TDialogInterface.OnItemSelectListener mOnItemSelectListener) {
 		// Dialog 배경을 투명 처리 해준다.
 		//super(context, android.R.style.Theme_Translucent_NoTitleBar);
 		this(context);
 		setMenu(titleList,mOnItemSelectListener);
 		//this.getVersion=notFirst;
 	}
-	public SelectDialog(Context context,String title, ArrayList<String> titleList, OnItemSelectListener mOnItemSelectListener) {
+	public SelectDialog(Context context,String title, ArrayList<String> titleList, TDialogInterface.OnItemSelectListener mOnItemSelectListener) {
 		// Dialog 배경을 투명 처리 해준다.
 		//super(context, android.R.style.Theme_Translucent_NoTitleBar);
 		this(context,titleList,mOnItemSelectListener);
 		setTitle(title);
 		//this.getVersion=notFirst;
 	}
-	public SelectDialog setMenu(ArrayList<String> titleList, OnItemSelectListener mOnItemSelectListener){
+	public SelectDialog setMenu(ArrayList<String> titleList, TDialogInterface.OnItemSelectListener mOnItemSelectListener){
 		setDepart(false);
 		this.titleList=titleList;
 		setOnItemSelectListener(mOnItemSelectListener);
 		return this;
 	}
-	public SelectDialog setMenu(String[] titleListArr, OnItemSelectListener mOnItemSelectListener){
+	public SelectDialog setMenu(String[] titleListArr, TDialogInterface.OnItemSelectListener mOnItemSelectListener){
 		setDepart(false);
 		this.titleListArr=titleListArr;
 		isArr=true;
@@ -130,31 +127,31 @@ public class SelectDialog extends Dialog {
 		parent.setOrientation(LinearLayout.VERTICAL);
 		//parent.setBackgroundResource(R.drawable.dialog_white_bg);
 		if(newApi){
-			parent.setBackground(Util.getDrawable(ctx, Color.WHITE));
+			parent.setBackground(ImageUtil.getDrawable(ctx, Color.WHITE));
 		}else{
-			parent.setBackgroundDrawable(Util.getDrawable(ctx, Color.WHITE));
+			parent.setBackgroundDrawable(ImageUtil.getDrawable(ctx, Color.WHITE));
 		}
 		LinearLayout.LayoutParams tvParams=new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 		
 		if(isTitle){
-			tvParams.setMargins(Util.PxToDp(ctx,10), Util.PxToDp(ctx,0), Util.PxToDp(ctx,10), Util.PxToDp(ctx,0));
-			parent.setPadding(Util.PxToDp(ctx,0), Util.PxToDp(ctx,0), Util.PxToDp(ctx,0), Util.PxToDp(ctx,10));
+			tvParams.setMargins(ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 0), ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 0));
+			parent.setPadding(ImageUtil.PxToDp(ctx, 0), ImageUtil.PxToDp(ctx, 0), ImageUtil.PxToDp(ctx, 0), ImageUtil.PxToDp(ctx, 10));
 			TextView titleTv=new TextView(ctx);
 			LinearLayout.LayoutParams titleParams=new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-			titleTv.setPadding(Util.PxToDp(ctx,10), Util.PxToDp(ctx,10), Util.PxToDp(ctx,10), Util.PxToDp(ctx,10));
+			titleTv.setPadding(ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10));
 			titleTv.setGravity(Gravity.CENTER);
 			titleTv.setTextSize(20);
 			titleTv.setTextColor(Color.WHITE);
 			titleTv.setLayoutParams(titleParams);
 			titleTv.setText(titleStr);
 			if(newApi){
-				titleTv.setBackground(Util.getDrawable(ctx, 0xffc5cdfb, 10, 10, 0, 0));
+				titleTv.setBackground(ImageUtil.getDrawable(ctx, 0xffc5cdfb, 10, 10, 0, 0));
 			}else{
-				titleTv.setBackgroundDrawable(Util.getDrawable(ctx, 0xffc5cdfb, 10, 10, 0, 0));
+				titleTv.setBackgroundDrawable(ImageUtil.getDrawable(ctx, 0xffc5cdfb, 10, 10, 0, 0));
 			}
 			parent.addView(titleTv);
 		}else{
-			parent.setPadding(Util.PxToDp(ctx,10), Util.PxToDp(ctx,10), Util.PxToDp(ctx,10), Util.PxToDp(ctx,10));
+			parent.setPadding(ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10), ImageUtil.PxToDp(ctx, 10));
 		}
 		parent.setLayoutParams(parentParams);
 		ScrollView sv=new ScrollView(ctx);
@@ -185,13 +182,13 @@ public class SelectDialog extends Dialog {
 //					tv.setOnClickListener(onClick);
 //			}
 			tv.setClickable(true);
-			tv.setPadding(0, Util.PxToDp(ctx, 10), 0, Util.PxToDp(ctx, 10));
+			tv.setPadding(0, ImageUtil.PxToDp(ctx, 10), 0, ImageUtil.PxToDp(ctx, 10));
 			tv.setTextColor(Color.BLACK);
 			//tv.setBackgroundResource(R.drawable.tr_bg);
 			if(newApi){
-				tv.setBackground(Util.getTrBg(ctx));
+				tv.setBackground(ImageUtil.getTrBg(ctx));
 			}else{
-				tv.setBackgroundDrawable(Util.getTrBg(ctx));
+				tv.setBackgroundDrawable(ImageUtil.getTrBg(ctx));
 			}
 			tv.setTextSize(18);
 			tv.setLayoutParams(tvParams);
@@ -214,10 +211,10 @@ public class SelectDialog extends Dialog {
 	}
 	private View getDiv(){
 		View div=new View(ctx);
-		LinearLayout.LayoutParams divParams=new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,Util.PxToDp(ctx,1));
+		LinearLayout.LayoutParams divParams=new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, ImageUtil.PxToDp(ctx, 1));
 		div.setBackgroundColor(Color.parseColor("#FFC5CDFB"));
-		divParams.bottomMargin=Util.PxToDp(ctx, 2);
-		divParams.topMargin=Util.PxToDp(ctx, 2);
+		divParams.bottomMargin= ImageUtil.PxToDp(ctx, 2);
+		divParams.topMargin= ImageUtil.PxToDp(ctx, 2);
 		div.setLayoutParams(divParams);
 		return div;
 	}

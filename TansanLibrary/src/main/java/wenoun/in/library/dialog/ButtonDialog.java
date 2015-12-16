@@ -1,13 +1,7 @@
 package wenoun.in.library.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -19,12 +13,6 @@ public class ButtonDialog extends BaseDialog {
 	public static final int STYLE_TANSAN=0;
 	public static final int STYLE_WEMOM=1;
 	private int styleId=R.style.TranslucentTheme;
-	public interface OnConfirmClickListener{
-		public void onClick(ButtonDialog d,View v);
-	}
-	public interface OnCancelClickListener{
-		public void onClick(ButtonDialog d,View v);
-	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		ctx.setTheme(styleId);
@@ -98,8 +86,8 @@ public class ButtonDialog extends BaseDialog {
 			}
 		});
 	}
-	OnConfirmClickListener confirmClickListener=null;
-	OnCancelClickListener cancelClickListener=null;
+	TDialogInterface.OnButtonClickListener confirmClickListener=null;
+	TDialogInterface.OnButtonClickListener cancelClickListener=null;
 	public ButtonDialog setTitle(String str){
 		titleStr=str;
 		return this;
@@ -108,13 +96,13 @@ public class ButtonDialog extends BaseDialog {
 		msgStr=str;
 		return this;
 	}
-	public ButtonDialog setConfirm(String str, final OnConfirmClickListener confirmClickListener){
+	public ButtonDialog setConfirm(String str, final TDialogInterface.OnButtonClickListener confirmClickListener){
 		this.confirmClickListener=confirmClickListener;
 		this.confirmStr=str;
 
 		return this;
 	}
-	public ButtonDialog setCancel(String str, final OnCancelClickListener cancelClickListener){
+	public ButtonDialog setCancel(String str, final TDialogInterface.OnButtonClickListener cancelClickListener){
 		this.cancelClickListener=cancelClickListener;
 		this.cancelStr=str;
 

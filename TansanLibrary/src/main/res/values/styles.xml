@@ -27,5 +27,14 @@
         <item name="android:background">#80fbc5c5</item>
 
     </style>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="loading">
+        <item name="android:indeterminateDrawable">@drawable/progress_ani</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">400</item>
+    </style>
 
 </resources>

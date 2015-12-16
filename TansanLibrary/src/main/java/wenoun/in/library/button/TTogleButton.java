@@ -18,34 +18,49 @@ public class TTogleButton extends Button {
     private boolean isChecked=false;
     public TTogleButton(Context ctx){
         super(ctx);
+        setResourceId();
     }
 
     public TTogleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setResourceId();
     }
 
     public TTogleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setResourceId();
     }
     @TargetApi(21)
     public TTogleButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        setResourceId();
     }
     private void setResourceId(){
-        notCheckedBGId= R.drawable.tb_off;
-        checkedBGId=R.drawable.tb_on;
-        notEnableBGId=R.drawable.tb_off;
+        notCheckedBGId= R.drawable.library_tb_off;
+        checkedBGId=R.drawable.library_tb_on;
+        notEnableBGId=R.drawable.library_tb_off;
+        setBackgroundResource(notCheckedBGId);
+    }
+
+    @Override
+    public void setBackgroundResource(int resource){
+        super.setBackgroundResource(resource);
+        if(isChecked)
+            setText(R.string.on_str);
+        else
+            setText(R.string.off_str);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch(event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                if(isChecked)
+            case MotionEvent.ACTION_UP:
+                isChecked=!isChecked;
+                if(!isChecked)
                     setBackgroundResource(notCheckedBGId);
                 else
                     setBackgroundResource(checkedBGId);
-                isChecked=!isChecked;
+
                 break;
         }
         return super.onTouchEvent(event);
@@ -55,14 +70,28 @@ public class TTogleButton extends Button {
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         if(enabled){
-            if(isChecked)
+            if(isChecked) {
                 setBackgroundResource(notCheckedBGId);
-            else
+                setTextColor(0xff0000ff);
+            }
+            else {
                 setBackgroundResource(checkedBGId);
-        }else
+                setTextColor(0xff000000);
+            }
+        }else {
             setBackgroundResource(notCheckedBGId);
+            setTextColor(0xff999999);
+        }
+
     }
     public void setChecked(boolean checked){
         isChecked=checked;
+        if(isChecked)
+            setBackgroundResource(checkedBGId);
+        else
+            setBackgroundResource(notCheckedBGId);
+    }
+    public boolean isChecked(){
+        return isChecked;
     }
 }
