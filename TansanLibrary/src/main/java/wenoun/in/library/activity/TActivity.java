@@ -22,7 +22,7 @@ import wenoun.in.library.toast.TToast;
 import wenoun.in.library.util.ImageUtil;
 
 /**
- * Created by jeyhoon on 15. 12. 16..
+ * Created by jeyhoon on 15. 12. 19..
  */
 public class TActivity extends Activity {
     private Animation aniShow, aniHide;
@@ -145,10 +145,10 @@ public class TActivity extends Activity {
         mainLayout = (LinearLayout) mainRoot.findViewById(R.id.tmain_main_root);
         if (isLayoutMain) {
             (menuRoot = (LinearLayout) mainRoot.findViewById(R.id.tmain_menu_root)).setVisibility(View.VISIBLE);
-            ((LinearLayout) mainRoot.findViewById(R.id.tmain_menu_back_root)).setVisibility(View.GONE);
+            (mainRoot.findViewById(R.id.tmain_menu_back_root)).setVisibility(View.GONE);
             setLayoutTheme();
         } else {
-            ((LinearLayout) mainRoot.findViewById(R.id.tmain_menu_root)).setVisibility(View.GONE);
+            (mainRoot.findViewById(R.id.tmain_menu_root)).setVisibility(View.GONE);
             (menuRoot = (LinearLayout) mainRoot.findViewById(R.id.tmain_menu_back_root)).setVisibility(View.VISIBLE);
         }
 //        } else {
@@ -306,10 +306,10 @@ public class TActivity extends Activity {
             togleBtn.setChecked(is);
     }
     public boolean isToggleButtonSet(){
-        if(null!=togleBtn)
-            return togleBtn.isChecked();
-        else
-            return false;
+//        if(null!=togleBtn)
+        return null!=togleBtn&& togleBtn.isChecked();
+//        else
+//            return false;
     }
 
     public void setMenuWidth(int widthDp) {
