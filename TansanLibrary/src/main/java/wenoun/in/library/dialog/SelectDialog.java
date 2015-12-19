@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import wenoun.in.library.R;
 import wenoun.in.library.util.ImageUtil;
 
 public class SelectDialog extends BaseDialog {
@@ -43,7 +44,7 @@ public class SelectDialog extends BaseDialog {
 	}
 	public SelectDialog(Context context) {
 		// Dialog 배경을 투명 처리 해준다.
-		super(context, android.R.style.Theme_Translucent_NoTitleBar);
+		super(context, R.style.TranslucentTheme);
 		this.ctx = context;
 		//this.getVersion=notFirst;
 	}

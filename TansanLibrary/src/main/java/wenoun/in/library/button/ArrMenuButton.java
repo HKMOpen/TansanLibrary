@@ -40,7 +40,7 @@ public class ArrMenuButton extends Button {
         opendBtn= R.drawable.btn_back_white;
         closedBtn= R.drawable.btn_menu_arr_white;
         setBackgroundResource(closedBtn);
-        setId(0);
+//        setId(0);
 
     }
 
@@ -111,4 +111,9 @@ public class ArrMenuButton extends Button {
             }
         }
     };
+
+    @Override
+    public void setVisibility(int visibility) {
+        super.setVisibility(visibility);
+    }
 }
