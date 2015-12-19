@@ -21,6 +21,14 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <ImageView
+                android:id="@+id/tmain_menu_app_icon"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_weight="0"
+                android:padding="5dip"
+                android:visibility="gone"/>
+
             <wenoun.in.library.button.ArrMenuButton
                 android:id="@+id/tmain_menu_arr_btn"
                 android:layout_width="40dip"
@@ -28,6 +36,7 @@
                 android:layout_margin="5dip"
                 android:layout_weight="0"
                 android:onClick="showMenu" />
+
 
             <ImageView
                 android:id="@+id/tmain_menu_menu_btn"

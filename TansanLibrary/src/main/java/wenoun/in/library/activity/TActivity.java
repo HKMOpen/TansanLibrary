@@ -38,9 +38,11 @@ public class TActivity extends Activity {
     private boolean isMenuOpen = false;
     private boolean hasMenu = false;
     private TTogleButton togleBtn=null;
+    private ArrMenuButton arrBtn=null;
     public static final int LAYOUT_THEME_ARR_MENU = 0;
     public static final int LAYOUT_THEME_MENU_MENU = 1;
     public static final int LAYOUT_THEME_MORE_MENU = 2;
+    public static final int LAYOUT_THEME_APP_ICON=3;
     public static final int BUTTON_STYLE_CUSTOM=-1;
     public static final int BUTTON_STYLE_ADD = 0;
     public static final int BUTTON_STYLE_MORE = 1;
@@ -82,30 +84,40 @@ public class TActivity extends Activity {
 
     private void setLayoutTheme() {
         if (isLayoutMain) {
-            ArrMenuButton arrBtn = (ArrMenuButton) (mainRoot.findViewById(R.id.tmain_menu_arr_btn));
+            arrBtn = (ArrMenuButton) (mainRoot.findViewById(R.id.tmain_menu_arr_btn));
             switch (LAYOUT_THEME) {
                 default:
                 case LAYOUT_THEME_ARR_MENU:
                     arrBtn.setVisibility(View.VISIBLE);
                     mainRoot.findViewById(R.id.tmain_menu_menu_btn).setVisibility(View.GONE);
                     mainRoot.findViewById(R.id.tmain_menu_more_btn).setVisibility(View.GONE);
+                    mainRoot.findViewById(R.id.tmain_menu_app_icon).setVisibility(View.GONE);
                     break;
                 case LAYOUT_THEME_MENU_MENU:
                     arrBtn.setVisibility(View.GONE);
                     mainRoot.findViewById(R.id.tmain_menu_menu_btn).setVisibility(View.VISIBLE);
                     mainRoot.findViewById(R.id.tmain_menu_more_btn).setVisibility(View.GONE);
+                    mainRoot.findViewById(R.id.tmain_menu_app_icon).setVisibility(View.GONE);
                     break;
                 case LAYOUT_THEME_MORE_MENU:
                     arrBtn.setVisibility(View.GONE);
                     mainRoot.findViewById(R.id.tmain_menu_menu_btn).setVisibility(View.GONE);
                     mainRoot.findViewById(R.id.tmain_menu_more_btn).setVisibility(View.VISIBLE);
+                    mainRoot.findViewById(R.id.tmain_menu_app_icon).setVisibility(View.GONE);
+                    break;
+                case LAYOUT_THEME_APP_ICON:
+                    arrBtn.setVisibility(View.GONE);
+                    mainRoot.findViewById(R.id.tmain_menu_menu_btn).setVisibility(View.GONE);
+                    mainRoot.findViewById(R.id.tmain_menu_more_btn).setVisibility(View.GONE);
+                    mainRoot.findViewById(R.id.tmain_menu_app_icon).setVisibility(View.VISIBLE);
+                    ((ImageView)mainRoot.findViewById(R.id.tmain_menu_app_icon)).setImageDrawable(ctx.getApplicationInfo().loadIcon(ctx.getPackageManager()));
                     break;
             }
         }
     }
 
     public void setLayoutTheme(int layoutTheme) {
-        if (layoutTheme < LAYOUT_THEME_ARR_MENU || layoutTheme > LAYOUT_THEME_MORE_MENU) {
+        if (layoutTheme < LAYOUT_THEME_ARR_MENU || layoutTheme > LAYOUT_THEME_APP_ICON) {
             LAYOUT_THEME = LAYOUT_THEME_ARR_MENU;
         } else {
             LAYOUT_THEME = layoutTheme;
@@ -400,6 +412,8 @@ public class TActivity extends Activity {
             menuLayout.setVisibility(View.GONE);
             isMenuOpen = false;
             backView.setVisibility(View.GONE);
+            if(null!=arrBtn)
+                arrBtn.setShown(false);
         }
 
         @Override
