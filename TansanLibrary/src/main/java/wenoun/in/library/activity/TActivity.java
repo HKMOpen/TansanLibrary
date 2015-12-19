@@ -16,7 +16,9 @@ import android.widget.TextView;
 import wenoun.in.library.R;
 import wenoun.in.library.button.ArrMenuButton;
 import wenoun.in.library.button.TTogleButton;
+import wenoun.in.library.dialog.AlertDialog;
 import wenoun.in.library.image.ImageUtils;
+import wenoun.in.library.toast.TToast;
 import wenoun.in.library.util.ImageUtil;
 
 /**
@@ -292,6 +294,7 @@ public class TActivity extends Activity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip50, dip50);
         layoutParams.weight = 0;
         togleBtn=new TTogleButton(ctx);
+        togleBtn.setPadding(0,0,0,0);
         togleBtn.setLayoutParams(layoutParams);
         togleBtn.setOnClickListener(listener);
         togleBtn.setChecked(isSet);
@@ -492,5 +495,11 @@ public class TActivity extends Activity {
         if (isFin) {
             finish();
         }
+    }
+    public void showToast(String msg){
+        new TToast(ctx).showToast(msg);
+    }
+    public void showAlertDialog(String title, String msg){
+        new AlertDialog(ctx).setTitle(title).setMsg(msg).show();
     }
 }

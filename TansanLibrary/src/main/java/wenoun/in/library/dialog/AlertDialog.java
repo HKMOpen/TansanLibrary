@@ -62,6 +62,7 @@ public class AlertDialog extends BaseDialog {
 		msgTv.setText(msgStr);
 		if(!isEmpty(closeStr))
 			closeButton.setText(closeStr);
+
 		closeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
