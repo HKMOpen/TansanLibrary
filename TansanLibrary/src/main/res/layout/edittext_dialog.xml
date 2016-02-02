@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="20dip"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_white_bg"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/corner_title_tansan_bg"
+            android:id="@+id/title_layout">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="5dip"
+                android:gravity="center"
+                android:text="Title"
+                android:textStyle="bold"
+                android:id="@+id/title_tv"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Msg"
+                android:minEms="8"
+                android:textColor="@color/black"
+                android:id="@+id/msg_tv"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="7"
+                android:textColor="@color/black"
+                android:id="@+id/et"
+                android:textSize="20sp"
+                android:padding="5dip"
+                android:background="@drawable/corner_border_tansan_bg"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/tansan_btn"
+                android:id="@+id/confirm_button"
+                android:padding="5dip"
+                android:text="@string/confirm"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+            <View
+                android:layout_width="10dip"
+                android:layout_height="1dip"
+                android:background="@color/tr"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/tansan_btn"
+                android:id="@+id/cancel_button"
+                android:padding="5dip"
+                android:text="@string/cancel"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

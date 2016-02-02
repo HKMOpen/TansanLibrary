@@ -12,4 +12,5 @@
     <string name="update">アップデート</string>
     <string name="billing_contact">請求お問合せ : </string>
     <string name="general_contact">一般お問合せ :</string>
+    <string name="back_pressed_quit">もう一度押すと終了します。</string>
 </resources>

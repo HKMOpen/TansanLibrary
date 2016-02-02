@@ -13,4 +13,5 @@
     <string name="general_contact">Common Contact : </string>
     <string name="on_str" translatable="false">ON</string>
     <string name="off_str" translatable="false">OFF</string>
+    <string name="back_pressed_quit">Press again to exit.</string>
 </resources>

@@ -51,7 +51,7 @@ public class ImageUtil {
 	}
 
 	private static Drawable getButtonPressedBack(Context ctx) {
-		int btnPressedColor = 0xFF0000FF;
+		int btnPressedColor = 0x90C5CDFB;
 		GradientDrawable g = new GradientDrawable(
 				GradientDrawable.Orientation.LEFT_RIGHT, new int[] {
 						btnPressedColor, btnPressedColor, btnPressedColor });
@@ -60,7 +60,7 @@ public class ImageUtil {
 		return g;
 	}
 	public static Drawable getSelectedBack(Context ctx) {
-		int btnPressedColor = 0x550000FF;
+		int btnPressedColor = 0x90C5CDFB;
 		GradientDrawable g = new GradientDrawable(
 				GradientDrawable.Orientation.LEFT_RIGHT, new int[] {
 						btnPressedColor, btnPressedColor, btnPressedColor });

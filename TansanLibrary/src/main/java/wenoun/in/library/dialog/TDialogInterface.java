@@ -7,9 +7,12 @@ import android.view.View;
  */
 public class TDialogInterface {
     public interface OnButtonClickListener {
-        public void onClick(BaseDialog d, View v);
+        public void onClick( BaseDialog d, View v);
     }
     public interface OnItemSelectListener{
         public void onSelect(BaseDialog dialog, View v, int position);
+    }
+    public interface OnEditConfirmListener{
+        public void onClick(BaseDialog dialog, View v, String input);
     }
 }

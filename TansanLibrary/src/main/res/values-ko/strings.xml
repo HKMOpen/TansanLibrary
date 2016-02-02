@@ -12,4 +12,5 @@
     <string name="update">업데이트</string>
     <string name="billing_contact">결제 문의 : </string>
     <string name="general_contact">일반 문의 : </string>
+    <string name="back_pressed_quit">한번 더 누르면 종료됩니다.</string>
 </resources>

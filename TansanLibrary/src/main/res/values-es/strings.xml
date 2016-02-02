@@ -12,4 +12,5 @@
     <string name="update">Actualización</string>
     <string name="billing_contact">Facturación Contacto :</string>
     <string name="general_contact">Común Contacto : </string>
+    <string name="back_pressed_quit">Pulse de nuevo para salir.</string>
 </resources>

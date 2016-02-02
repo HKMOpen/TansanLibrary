@@ -40,12 +40,14 @@ public class WeNoun extends Activity{
         finish();
     }
     public void goHomepage(View v){
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wenoun.in")));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wenoun.com")));
     }
     public void sendNorContact(View v){
-        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:wenoun@wenoun.in")));
+        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:wenoun@wenoun.com")));
     }
     public void sendBilContact(View v){
-        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:billing@wenoun.in")));
+        startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:billing@wenoun.com")));
     }
+    public static String DEV_PAGE="https://play.google.com/store/apps/dev?id=5954317455002110606";
+    public static Uri DEV_PAGE_URI=Uri.parse("https://play.google.com/store/apps/dev?id=5954317455002110606");
 }

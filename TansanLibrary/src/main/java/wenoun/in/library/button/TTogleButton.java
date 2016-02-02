@@ -40,6 +40,9 @@ public class TTogleButton extends Button {
         checkedBGId=R.drawable.library_tb_on;
         notEnableBGId=R.drawable.library_tb_off;
         setBackgroundResource(notCheckedBGId);
+        setPadding(0,0,0,0);
+        setTextSize(12);
+        setTextColor(0xFF000000);
     }
 
     @Override
@@ -55,12 +58,13 @@ public class TTogleButton extends Button {
     public boolean onTouchEvent(MotionEvent event) {
         switch(event.getAction()){
             case MotionEvent.ACTION_UP:
-                isChecked=!isChecked;
-                if(!isChecked)
-                    setBackgroundResource(notCheckedBGId);
-                else
-                    setBackgroundResource(checkedBGId);
-
+                if(isEnabled()) {
+                    isChecked = !isChecked;
+                    if (!isChecked)
+                        setBackgroundResource(notCheckedBGId);
+                    else
+                        setBackgroundResource(checkedBGId);
+                }
                 break;
         }
         return super.onTouchEvent(event);
@@ -71,11 +75,11 @@ public class TTogleButton extends Button {
         super.setEnabled(enabled);
         if(enabled){
             if(isChecked) {
-                setBackgroundResource(notCheckedBGId);
-                setTextColor(0xff0000ff);
+                setBackgroundResource(checkedBGId);
+                setTextColor(0xff000000);
             }
             else {
-                setBackgroundResource(checkedBGId);
+                setBackgroundResource(notCheckedBGId);
                 setTextColor(0xff000000);
             }
         }else {
@@ -86,7 +90,7 @@ public class TTogleButton extends Button {
     }
     public void setChecked(boolean checked){
         isChecked=checked;
-        if(isChecked)
+        if(isChecked&&isEnabled())
             setBackgroundResource(checkedBGId);
         else
             setBackgroundResource(notCheckedBGId);

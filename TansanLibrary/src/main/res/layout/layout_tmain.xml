@@ -118,6 +118,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@color/tr" />
         </LinearLayout>
 
@@ -137,4 +138,22 @@
         android:background="@color/gray_half"
         android:clickable="true"
         android:visibility="gone"/>
+    <View
+        android:id="@+id/tmain_more_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dip"
+        android:background="@color/gray_half"
+        android:clickable="true"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/tmain_menu_more_dialog"
+        android:background="@color/white"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dip"/>
 </RelativeLayout>
