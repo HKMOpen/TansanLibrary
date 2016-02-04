@@ -29,7 +29,7 @@
                 android:padding="5dip"
                 android:visibility="gone"/>
 
-            <wenoun.in.library.button.ArrMenuButton
+            <com.wenoun.library.button.ArrMenuButton
                 android:id="@+id/tmain_menu_arr_btn"
                 android:layout_width="40dip"
                 android:layout_height="40dip"
