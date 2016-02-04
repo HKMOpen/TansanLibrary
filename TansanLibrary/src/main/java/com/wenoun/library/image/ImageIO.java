@@ -14,6 +14,14 @@ import java.io.OutputStream;
 /**
  * Created by jeyhoon on 16. 2. 3..
  */
+
+/*
+
+<!-- Glide모듈을 Custom하게 변경 -->
+        <meta-data
+            android:name="com.wenoun.library.image.TGlideModule"
+            android:value="GlideModule" />
+ */
 public class ImageIO {
     public static void saveBitmap(final Context ctx,final String loadPath, final String savePath, final String saveImgName){
         Glide.with(ctx).load(loadPath).asBitmap().into(new SimpleTarget<Bitmap>() {

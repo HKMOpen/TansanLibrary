@@ -1,4 +1,4 @@
-package com.wenoun.library;
+package com.wenoun.library.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -27,15 +27,17 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-//import wenoun.in.library.R;
+import com.wenoun.library.R;
 import com.wenoun.library.button.ArrMenuButton;
 import com.wenoun.library.button.TTogleButton;
 import com.wenoun.library.dialog.AlertDialog;
 import com.wenoun.library.image.ImageUtils;
 import com.wenoun.library.toast.TToast;
 import com.wenoun.library.util.ImageUtil;
+
+import java.util.ArrayList;
+
+//import wenoun.in.library.R;
 
 /**
  * Created by jeyhoon on 15. 12. 19..

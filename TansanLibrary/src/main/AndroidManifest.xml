@@ -1,10 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wenoun.library">
 
     <application android:allowBackup="true">
-        <!-- Glide모듈을 Custom하게 변경 -->
-        <meta-data
-            android:name="com.wenoun.library.image.TGlideModule"
-            android:value="GlideModule" />
+
     </application>
 
 </manifest>

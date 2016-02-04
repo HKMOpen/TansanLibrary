@@ -18,7 +18,7 @@ import java.util.Random;
  * <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
  *
  <receiver
- android:name="wenoun.in.library.antiSmartManager.Rec"
+ android:name="com.wenoun.library.antiSmartManager.Rec"
  android:enabled="true">
  <intent-filter>
  <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -28,7 +28,7 @@ import java.util.Random;
  </receiver>
 
  <activity
- android:name="wenoun.in.library.antiSmartManager.Act"
+ android:name="com.wenoun.library.antiSmartManager.Act"
  android:excludeFromRecents="true"
  android:taskAffinity=":antiSmartManager"/>
 */

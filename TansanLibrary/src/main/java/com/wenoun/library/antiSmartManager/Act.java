@@ -10,7 +10,7 @@ import android.os.Bundle;
 /*
  * AndroidManifest Added
  *
- * <activity name=".AntiSmartManager"/>
+ * <activity name="com.wenoun.library.antiSmartManager.AntiSmartManager"/>
  */
 public class Act extends Activity {
     @Override

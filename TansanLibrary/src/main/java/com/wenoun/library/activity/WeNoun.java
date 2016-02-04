@@ -3,7 +3,7 @@
  * Code By Jey.
  */
 
-package com.wenoun.library;
+package com.wenoun.library.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,11 +14,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.wenoun.library.R;
+
 /**
  * Created by SnakeJey on 2015-02-04.
  */
  /*
- <activity android:name="wenoun.in.library.activity.WeNoun"/>
+ <activity android:name="com.wenoun.library.activity.WeNoun"/>
  */
 public class WeNoun extends Activity{
     private Context ctx=null;
