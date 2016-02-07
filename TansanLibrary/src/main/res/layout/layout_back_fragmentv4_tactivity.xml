@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/back_fragment_menu_root"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:background="@color/tblue">
+        <ImageView
+            android:id="@+id/back_fragment_back_btn"
+            android:layout_weight="0"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/btn_back_white"
+            android:padding="5dip"
+            android:clickable="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:text="Title"
+            android:id="@+id/back_fragment_title"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:paddingLeft="10dip"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/back_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical">
+    </LinearLayout>
+</LinearLayout>
