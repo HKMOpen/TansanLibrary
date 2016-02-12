@@ -9,12 +9,14 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wenoun.library.R;
+import com.wenoun.library.image.ImageUtils;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ public class BackFragmentTActivity extends Activity {
 
     private ArrayList<String> titleList=new ArrayList<String>();
 
-    private int customButtonCnt=0;
+    private int customButtonCnt=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +74,10 @@ public class BackFragmentTActivity extends Activity {
     }
 
     public void removeCustomButton(){
-        for(int i=0; i<customButtonCnt;i++){
+        for(int i=2; i<customButtonCnt;i++){
             menuRoot.removeViewAt(i);
         }
-        customButtonCnt=0;
+        customButtonCnt=2;
     }
 
     public void addTitle(String title){
@@ -117,7 +119,9 @@ public class BackFragmentTActivity extends Activity {
         item.setTextSize(textSize);
         item.setTextColor(textColor);
         item.setText(menu);
-
+        item.setGravity(Gravity.CENTER);
+        final int dip10= ImageUtils.dpToPx(ctx,10);
+        item.setPadding(dip10,0,dip10,0);
         return item;
     }
 
