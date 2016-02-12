@@ -70,10 +70,7 @@ public class BackFragmentTActivity extends FragmentActivity {
     }
 
     public void removeCustomButton(){
-        for(int i=0; i<customButtonCnt;i++){
-            menuRoot.removeViewAt(menuRoot.getChildCount()-1);
-        }
-        customButtonCnt=0;
+        menuRoot.removeAllViews();
     }
 
     public void addTitle(String title){

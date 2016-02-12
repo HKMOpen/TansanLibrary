@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/back_fragment_menu_root"
         android:layout_width="match_parent"
         android:layout_height="50dip"
         android:layout_weight="0"
@@ -29,6 +28,12 @@
             android:singleLine="true"
             android:textStyle="bold"
             android:paddingLeft="10dip"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="horizontal"
+            android:id="@+id/back_fragment_menu_root"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/back_fragment_container"
