@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:id="@+id/fragment_tactivity_menu_root"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <View
+        android:id="@+id/fragment_tactivity_div"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@color/tblue"/>
+    <LinearLayout
+        android:id="@+id/fragment_tactivity_main_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fragment_tactivity_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+    </LinearLayout>
+</LinearLayout>

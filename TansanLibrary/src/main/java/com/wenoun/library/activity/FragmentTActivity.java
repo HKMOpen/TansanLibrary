@@ -33,7 +33,7 @@ public class FragmentTActivity extends Activity {
     public final int STYLE_CUSTOM=3;
     private int mStyle=STYLE_TBLUE;
 
-
+    private boolean isBottom=false;
 
     private LinearLayout menuRoot=null;
     private LinearLayout mainRoot=null;
@@ -227,7 +227,10 @@ public class FragmentTActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx=this;
-        super.setContentView(R.layout.layout_fragment_tactvity);
+        if(isBottom)
+            super.setContentView(R.layout.layout_fragment_down_tactvity);
+        else
+            super.setContentView(R.layout.layout_fragment_tactvity);
         menuRoot=(LinearLayout)findViewById(R.id.fragment_tactivity_menu_root);
         mainRoot=(LinearLayout)findViewById(R.id.fragment_tactivity_main_root);
         setStyle(STYLE_TBLUE);
@@ -243,6 +246,10 @@ public class FragmentTActivity extends Activity {
             e.printStackTrace();
         }
         mainRoot.addView(main);
+    }
+
+    protected void setBottomTab(boolean isBottom){
+        this.isBottom=isBottom;
     }
 
     protected FragmentTActivity addFragment(int idx, Fragment fragment){
