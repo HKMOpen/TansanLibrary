@@ -32,6 +32,8 @@ public class BackFragmentTActivity extends Activity {
 
     private ArrayList<String> titleList=new ArrayList<String>();
 
+    private int customButtonCnt=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +65,17 @@ public class BackFragmentTActivity extends Activity {
         fragmentTransaction.replace(R.id.back_fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+        removeCustomButton();
     }
     public void addFragment(Fragment fragment){
         addFragment(fragment,"");
+    }
+
+    public void removeCustomButton(){
+        for(int i=0; i<customButtonCnt;i++){
+            menuRoot.removeViewAt(i);
+        }
+        customButtonCnt=0;
     }
 
     public void addTitle(String title){
@@ -84,6 +94,7 @@ public class BackFragmentTActivity extends Activity {
     public void addMenuButton(View v){
         if(null!=menuRoot){
             menuRoot.addView(v);
+            customButtonCnt++;
         }
     }
 

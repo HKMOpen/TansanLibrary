@@ -168,16 +168,31 @@ public class FragmentTActivity extends FragmentActivity {
         public int getSelectBackID() {
             if(selectBackID==-1){
                 int bgId=R.drawable.tab_select_tblue;
-                switch(mStyle){
-                    case STYLE_TBLUE:
-                        bgId=R.drawable.tab_select_tblue;
-                        break;
-                    case STYLE_BLACK:
-                        bgId=R.drawable.tab_select_black;
-                        break;
-                    case STYLE_TRED:
-                        bgId=R.drawable.tab_select_tred;
-                        break;
+                if(isBottom) {
+                    bgId=R.drawable.tab_bottom_select_tblue;
+                    switch (mStyle) {
+                        case STYLE_TBLUE:
+                            bgId = R.drawable.tab_bottom_select_tblue;
+                            break;
+                        case STYLE_BLACK:
+                            bgId = R.drawable.tab_bottom_select_black;
+                            break;
+                        case STYLE_TRED:
+                            bgId = R.drawable.tab_bottom_select_tred;
+                            break;
+                    }
+                }else{
+                    switch (mStyle) {
+                        case STYLE_TBLUE:
+                            bgId = R.drawable.tab_select_tblue;
+                            break;
+                        case STYLE_BLACK:
+                            bgId = R.drawable.tab_select_black;
+                            break;
+                        case STYLE_TRED:
+                            bgId = R.drawable.tab_select_tred;
+                            break;
+                    }
                 }
                 return bgId;
             }else
