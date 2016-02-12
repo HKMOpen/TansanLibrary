@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -29,7 +28,7 @@ public class BackFragmentTActivity extends FragmentActivity {
 
     private FragmentManager fragmentManager=null;
 
-    private int customButtonCnt=2;
+    private int customButtonCnt=0;
 
     private ArrayList<String> titleList=new ArrayList<String>();
 
@@ -71,10 +70,10 @@ public class BackFragmentTActivity extends FragmentActivity {
     }
 
     public void removeCustomButton(){
-        for(int i=2; i<customButtonCnt;i++){
-            menuRoot.removeViewAt(i);
+        for(int i=0; i<customButtonCnt;i++){
+            menuRoot.removeViewAt(menuRoot.getChildCount()-1);
         }
-        customButtonCnt=2;
+        customButtonCnt=0;
     }
 
     public void addTitle(String title){
@@ -110,7 +109,7 @@ public class BackFragmentTActivity extends FragmentActivity {
     }
     public View getMenuButton(String menu,float textSize,int textColor){
         TextView item=new TextView(ctx);
-        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         params.weight=0;
         item.setLayoutParams(params);
         item.setTextSize(textSize);
