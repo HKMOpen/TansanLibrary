@@ -97,7 +97,7 @@ public class ImageIO {
             fileCacheItem.createNewFile();
             out = new FileOutputStream(fileCacheItem);
 //160 부분을 자신이 원하는 크기로 변경할 수 있습니다.
-            bitmap = Bitmap.createScaledBitmap(bitmap, 768, height/(width/768), true);
+//            bitmap = Bitmap.createScaledBitmap(bitmap, 768, height/(width/768), true);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
             result=true;
         } catch (Exception e) {
