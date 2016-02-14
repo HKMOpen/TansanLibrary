@@ -14,13 +14,12 @@ import android.widget.ListView;
 
 import com.wenoun.library.R;
 import com.wenoun.library.activity.BackFragmentTActivity;
-import com.wenoun.library.activity.FragmentTActivity;
 
 /**
  * Created by jeyhoon on 16. 2. 7..
  */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class TFragment extends Fragment {
+public class BackTFragment extends Fragment {
 
     @Nullable
     @Override
@@ -29,12 +28,12 @@ public class TFragment extends Fragment {
     }
 
     protected Context ctx=null;
-    protected FragmentTActivity parent=null;
+    protected BackFragmentTActivity parent=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx=getActivity().getBaseContext();
-        parent=(FragmentTActivity)getActivity();
+        parent=(BackFragmentTActivity)getActivity();
     }
 
     public void startFragment(Fragment fragment,String title){
@@ -43,7 +42,7 @@ public class TFragment extends Fragment {
     public void startBackFragmentV4Act(Class <? extends com.wenoun.library.activity.v4.BackFragmentTActivity> cls){
         startBackFragmentAct(new com.wenoun.library.intent.v4.TIntent(ctx,cls));
     }
-    public void startBackFragmentAct(Class <? extends com.wenoun.library.activity.BackFragmentTActivity> cls){
+    public void startBackFragmentAct(Class <? extends BackFragmentTActivity> cls){
         startBackFragmentAct(new com.wenoun.library.intent.TIntent(ctx,cls));
     }
     public void startBackFragmentAct(com.wenoun.library.intent.v4.TIntent intent){

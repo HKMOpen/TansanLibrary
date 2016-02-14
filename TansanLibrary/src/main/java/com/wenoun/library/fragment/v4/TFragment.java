@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.wenoun.library.R;
 import com.wenoun.library.activity.v4.BackFragmentTActivity;
+import com.wenoun.library.activity.v4.FragmentTActivity;
 import com.wenoun.library.intent.v4.TIntent;
 
 /**
@@ -26,12 +27,12 @@ public class TFragment extends Fragment {
     }
 
     protected Context ctx=null;
-    protected BackFragmentTActivity parent=null;
+    protected FragmentTActivity parent=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx=getActivity().getBaseContext();
-        parent=(BackFragmentTActivity)getActivity();
+        parent=(FragmentTActivity)getActivity();
     }
     public void startFragment(Fragment fragment,String title){
         ((BackFragmentTActivity)getActivity()).addFragment(fragment,title);

@@ -1,11 +1,9 @@
-package com.wenoun.library.fragment;
+package com.wenoun.library.fragment.v4;
 
-import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +11,14 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.wenoun.library.R;
-import com.wenoun.library.activity.BackFragmentTActivity;
-import com.wenoun.library.activity.FragmentTActivity;
+import com.wenoun.library.activity.v4.BackFragmentTActivity;
+import com.wenoun.library.intent.v4.TIntent;
 
 /**
  * Created by jeyhoon on 16. 2. 7..
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class TFragment extends Fragment {
 
+public class BackTFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,24 +26,23 @@ public class TFragment extends Fragment {
     }
 
     protected Context ctx=null;
-    protected FragmentTActivity parent=null;
+    protected BackFragmentTActivity parent=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx=getActivity().getBaseContext();
-        parent=(FragmentTActivity)getActivity();
+        parent=(BackFragmentTActivity)getActivity();
     }
-
     public void startFragment(Fragment fragment,String title){
-        ((BackFragmentTActivity)getActivity()).addFragment(fragment, title);
+        ((BackFragmentTActivity)getActivity()).addFragment(fragment,title);
     }
-    public void startBackFragmentV4Act(Class <? extends com.wenoun.library.activity.v4.BackFragmentTActivity> cls){
-        startBackFragmentAct(new com.wenoun.library.intent.v4.TIntent(ctx,cls));
+    public void startBackFragmentV4Act(Class <? extends BackFragmentTActivity> cls){
+        startBackFragmentAct(new TIntent(ctx,cls));
     }
     public void startBackFragmentAct(Class <? extends com.wenoun.library.activity.BackFragmentTActivity> cls){
         startBackFragmentAct(new com.wenoun.library.intent.TIntent(ctx,cls));
     }
-    public void startBackFragmentAct(com.wenoun.library.intent.v4.TIntent intent){
+    public void startBackFragmentAct(TIntent intent){
         startActivity(intent);
     }
     public void startBackFragmentAct(com.wenoun.library.intent.TIntent intent){
