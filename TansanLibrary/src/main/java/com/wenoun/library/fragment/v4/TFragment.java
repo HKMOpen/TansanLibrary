@@ -26,10 +26,12 @@ public class TFragment extends Fragment {
     }
 
     protected Context ctx=null;
+    protected BackFragmentTActivity parent=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx=getActivity().getBaseContext();
+        parent=(BackFragmentTActivity)getActivity();
     }
     public void startFragment(Fragment fragment,String title){
         ((BackFragmentTActivity)getActivity()).addFragment(fragment,title);
