@@ -493,4 +493,10 @@ public class FragmentTActivity extends FragmentActivity {
             barRoot.removeAllViews();
         }
     }
+    public ViewPager getViewPager(){
+        return this.mViewPager;
+    }
+    public PagerAdapter getPagerAdapter(){
+        return this.mPagerAdapter;
+    }
 }
