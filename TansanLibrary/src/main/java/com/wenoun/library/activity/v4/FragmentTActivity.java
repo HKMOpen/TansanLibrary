@@ -402,6 +402,7 @@ public class FragmentTActivity extends FragmentActivity {
     }
     private void setMenuBg(int selectedId){
         tabSelectedListener.OnSelected(selectedId);
+        mPagerChangedListner.OnChanged(selectedId);
     }
     private View.OnClickListener tabItemListener=new View.OnClickListener() {
         @Override
@@ -430,7 +431,7 @@ public class FragmentTActivity extends FragmentActivity {
                 @Override
                 public void onPageSelected(int position) {
                     setMenuBg(position);
-                    mPagerChangedListner.OnChanged(position);
+//                    mPagerChangedListner.OnChanged(position);
                 }
 
                 @Override

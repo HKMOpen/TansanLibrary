@@ -4,7 +4,7 @@ publish {
     userOrg = 'jeyechoo'
     groupId = 'com.wenoun.library'
     artifactId = 'TansanLibrary'
-    publishVersion = '1.0.14'
+    publishVersion = '1.0.15'
     desc = ''
     website = 'https://github.com/JeongYoungHoon/TansanLibrary'
     issueTracker = "${website}/issues"
