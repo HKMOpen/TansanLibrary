@@ -47,6 +47,17 @@ public class FragmentTActivity extends FragmentActivity {
     private ArrayList<Fragment> fragments=new ArrayList<Fragment>();
     private ArrayList<TabItem> tabItems=new ArrayList<TabItem>();
 
+    private PagerChangedListener mPagerChangedListner=new PagerChangedListener() {
+        @Override
+        public void OnChanged(int pos) {
+
+        }
+    };
+
+    public interface PagerChangedListener{
+        void OnChanged(int pos);
+    }
+
     private TabSelectedListener tabSelectedListener=new TabSelectedListener() {
         @Override
         public void OnSelected(int pos) {
@@ -419,6 +430,7 @@ public class FragmentTActivity extends FragmentActivity {
                 @Override
                 public void onPageSelected(int position) {
                     setMenuBg(position);
+                    mPagerChangedListner.OnChanged(position);
                 }
 
                 @Override
@@ -498,5 +510,8 @@ public class FragmentTActivity extends FragmentActivity {
     }
     public PagerAdapter getPagerAdapter(){
         return this.mPagerAdapter;
+    }
+    public void setOnPagerChangedListener(PagerChangedListener listener){
+        this.mPagerChangedListner=listener;
     }
 }
