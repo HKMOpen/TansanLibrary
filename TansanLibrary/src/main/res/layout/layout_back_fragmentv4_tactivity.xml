@@ -43,4 +43,10 @@
         android:background="@color/white"
         android:orientation="vertical">
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/back_fragment_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"/>
 </LinearLayout>

@@ -129,5 +129,24 @@ public class BackFragmentTActivity extends FragmentActivity {
         }else
             super.onBackPressed();
     }
+    private LinearLayout barRoot=null;
+    public void setBarLayout(int layoutID){
+        setBarLayout(getLayoutInflater().inflate(layoutID,null));
+    }
+    public void setBarLayout(View v){
+        if(null==barRoot)
+            barRoot=(LinearLayout)findViewById(R.id.back_fragment_bar);
+        if(null!=barRoot) {
+            barRoot.removeAllViews();
+            barRoot.addView(v);
+        }
+    }
+    public void removeBarLayout(){
+        if(null==barRoot)
+            barRoot=(LinearLayout)findViewById(R.id.back_fragment_bar);
+        if(null!=barRoot) {
+            barRoot.removeAllViews();
+        }
+    }
 
 }

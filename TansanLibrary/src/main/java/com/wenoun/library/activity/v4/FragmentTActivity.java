@@ -471,4 +471,23 @@ public class FragmentTActivity extends FragmentActivity {
     public void setDivResource(int resourceID){
         findViewById(R.id.fragment_tactivity_div).setBackgroundResource(resourceID);
     }
+    private LinearLayout barRoot=null;
+    public void setBarLayout(int layoutID){
+        setBarLayout(getLayoutInflater().inflate(layoutID,null));
+    }
+    public void setBarLayout(View v){
+        if(null==barRoot)
+            barRoot=(LinearLayout)findViewById(R.id.fragment_tactivity_bar);
+        if(null!=barRoot) {
+            barRoot.removeAllViews();
+            barRoot.addView(v);
+        }
+    }
+    public void removeBarLayout(){
+        if(null==barRoot)
+            barRoot=(LinearLayout)findViewById(R.id.fragment_tactivity_bar);
+        if(null!=barRoot) {
+            barRoot.removeAllViews();
+        }
+    }
 }
