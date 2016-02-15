@@ -407,6 +407,9 @@ public class FragmentTActivity extends Activity {
             barRoot=(LinearLayout)findViewById(R.id.fragment_tactivity_bar);
         if(null!=barRoot) {
             barRoot.removeAllViews();
+            LinearLayout.LayoutParams vParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            vParams.weight=1;
+            v.setLayoutParams(vParams);
             barRoot.addView(v);
         }
     }
