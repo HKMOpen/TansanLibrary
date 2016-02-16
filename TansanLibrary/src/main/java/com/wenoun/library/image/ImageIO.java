@@ -71,6 +71,8 @@ public class ImageIO {
     }
     private static boolean saveBitmap(Bitmap bitmap, String strFilePath,
                                        String filename) {
+        if(filename.length()<=0||filename.equals(""))
+            return false;
         boolean result=false;
         File file = new File(strFilePath);
 
