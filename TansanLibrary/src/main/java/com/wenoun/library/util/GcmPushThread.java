@@ -1,5 +1,7 @@
 package com.wenoun.library.util;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -17,7 +19,8 @@ import java.util.ArrayList;
  * Created by jeyhoon on 16. 2. 17..
  */
 public class GcmPushThread extends Thread {
-    private OnGcmResultListener mListener;
+    private OnGcmResultListener mListener=null;
+    private Handler mHandler=null;
     private String apiKey="";
     private String token="";
     private ArrayList<GcmData> dataList=new ArrayList<GcmData>();
@@ -54,13 +57,19 @@ public class GcmPushThread extends Thread {
         }
     }
 
-    public GcmPushThread(String apiKey, String token, @NonNull ArrayList<GcmData> dataList, OnGcmResultListener mListener){
+    public GcmPushThread(String apiKey, String token, @NonNull ArrayList<GcmData> dataList, @NonNull OnGcmResultListener mListener){
         this.apiKey=apiKey;
         this.token=token;
         this.dataList=dataList;
         this.mListener=mListener;
     }
-    public GcmPushThread(String apiKey, String token, OnGcmResultListener mListener){
+    public GcmPushThread(String apiKey, String token, @NonNull ArrayList<GcmData> dataList, @NonNull Handler mHandler){
+        this.apiKey=apiKey;
+        this.token=token;
+        this.dataList=dataList;
+        this.mHandler=mHandler;
+    }
+    public GcmPushThread(String apiKey, String token, @NonNull OnGcmResultListener mListener){
         this.apiKey=apiKey;
         this.token=token;
         this.dataList=dataList;
@@ -134,20 +143,20 @@ public class GcmPushThread extends Thread {
                 if(res.length()>0&&!res.equals("")) {
                     JSONObject obj = new JSONObject(res);
                     if(obj.getInt("success")==1){
-                        mListener.OnFinish(this,RESULT_OK,res);
+                        sendResult(RESULT_OK,res);
                     }else{
-                        mListener.OnFinish(this,RESULT_FALIED,res);
+                        sendResult(RESULT_FALIED,res);
                     }
                 }else{
-                    mListener.OnFinish(this,RESULT_FALIED,"Not Result");
+                    sendResult(RESULT_FALIED,"Not Result");
                 }
 
             }else{
-                mListener.OnFinish(this,RESULT_FALIED,serverResponseMessage + ": " + serverResponseCode);
+                sendResult(RESULT_FALIED,serverResponseMessage + ": " + serverResponseCode);
             }
         }catch(Exception e){
             e.printStackTrace();
-            mListener.OnFinish(this,RESULT_OK,e.getMessage());
+            sendResult(RESULT_OK,e.getMessage());
         }finally {
             try{
                 if(null!=conn)
@@ -155,6 +164,17 @@ public class GcmPushThread extends Thread {
                 if(null!=dos)
                     dos.close();
             }catch(Exception e){e.printStackTrace();}
+        }
+    }
+    private void sendResult(int resultCode,String res){
+        if(null!=mListener) {
+            mListener.OnFinish(this, resultCode, res);
+        }
+        if(null!=mHandler){
+            Message msg=new Message();
+            msg.what=resultCode;
+            msg.obj=res;
+            mHandler.sendMessage(msg);
         }
     }
 }
