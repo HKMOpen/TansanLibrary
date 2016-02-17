@@ -52,6 +52,13 @@ public class GcmPushThread extends Thread {
     public GcmPushThread(String apiKey, String token, ArrayList<GcmData> dataList, OnGcmResultListener mListener){
         this.apiKey=apiKey;
         this.token=token;
+        this.dataList=dataList;
+        this.mListener=mListener;
+    }
+    public GcmPushThread(String apiKey, String token, OnGcmResultListener mListener){
+        this.apiKey=apiKey;
+        this.token=token;
+        this.dataList=dataList;
         this.mListener=mListener;
     }
     public GcmPushThread addGcmData(String key, String value){
