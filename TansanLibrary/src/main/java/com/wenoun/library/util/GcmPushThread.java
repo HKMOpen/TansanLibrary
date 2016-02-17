@@ -1,5 +1,6 @@
 package com.wenoun.library.util;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -49,7 +50,8 @@ public class GcmPushThread extends Thread {
             this.value = value;
         }
     }
-    public GcmPushThread(String apiKey, String token, ArrayList<GcmData> dataList, OnGcmResultListener mListener){
+
+    public GcmPushThread(String apiKey, String token, @NonNull ArrayList<GcmData> dataList, OnGcmResultListener mListener){
         this.apiKey=apiKey;
         this.token=token;
         this.dataList=dataList;
