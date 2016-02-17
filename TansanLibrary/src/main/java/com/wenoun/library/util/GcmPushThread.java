@@ -10,6 +10,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 /**
@@ -65,7 +66,13 @@ public class GcmPushThread extends Thread {
         this.dataList=dataList;
         this.mListener=mListener;
     }
-    public GcmPushThread addGcmData(String key, String value){
+    public GcmPushThread addGcmData(String key, String $value){
+        String value=$value;
+        try{
+            value=URLEncoder.encode($value,"UTF-8");
+        }catch(Exception e){
+            value=$value;
+        }
         dataList.add(new GcmData(key,value));
         return this;
     }
