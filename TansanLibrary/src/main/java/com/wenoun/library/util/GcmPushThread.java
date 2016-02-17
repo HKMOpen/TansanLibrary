@@ -3,6 +3,8 @@ package com.wenoun.library.util;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -122,7 +124,17 @@ public class GcmPushThread extends Thread {
                     res=res+buf+"\n";
                 }
                 br.close();
-                mListener.OnFinish(this,RESULT_OK,res);
+                if(res.length()>0&&!res.equals("")) {
+                    JSONObject obj = new JSONObject(res);
+                    if(obj.getInt("success")==1){
+                        mListener.OnFinish(this,RESULT_OK,res);
+                    }else{
+                        mListener.OnFinish(this,RESULT_FALIED,res);
+                    }
+                }else{
+                    mListener.OnFinish(this,RESULT_FALIED,"Not Result");
+                }
+
             }else{
                 mListener.OnFinish(this,RESULT_FALIED,serverResponseMessage + ": " + serverResponseCode);
             }
