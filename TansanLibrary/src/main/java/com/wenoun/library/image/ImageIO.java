@@ -28,6 +28,10 @@ public class ImageIO {
         public void onFinish(Bitmap bitmap, File file, boolean isSuccessed);
     }
     public static void saveBitmap(final Context ctx,final String loadPath, final String savePath, final String saveImgName){
+        if(savePath.length()<=0||savePath.equals(""))
+            return;
+        if(saveImgName.length()<=0||saveImgName.equals(""))
+            return;
         Glide.with(ctx).load(loadPath).asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
@@ -37,6 +41,10 @@ public class ImageIO {
 //        return saveBitmap(ctx,loadPath,savePath+saveImgName);
     }
     public static void saveBitmap(final Context ctx,final String loadPath, final String savePath, final String saveImgName,final OnBitmapSaveListener listener){
+        if(savePath.length()<=0||savePath.equals(""))
+            return;
+        if(saveImgName.length()<=0||saveImgName.equals(""))
+            return;
         Glide.with(ctx).load(loadPath).asBitmap().into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
@@ -72,6 +80,8 @@ public class ImageIO {
     private static boolean saveBitmap(Bitmap bitmap, String strFilePath,
                                        String filename) {
         if(filename.length()<=0||filename.equals(""))
+            return false;
+        if(strFilePath.length()<=0||strFilePath.equals(""))
             return false;
         boolean result=false;
         File file = new File(strFilePath);
