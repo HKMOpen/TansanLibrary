@@ -28,7 +28,7 @@ public class GcmPushThread extends Thread {
     private final String MIDDLE="\":\"";
     private final String CLOSE="\",";
     public static final int RESULT_OK=0;
-    public static final int RESULT_FALIED=1;
+    public static final int RESULT_FAILED=1;
     public interface OnGcmResultListener{
         public void OnFinish(GcmPushThread thread,int resultCode,String result);
     }
@@ -72,8 +72,12 @@ public class GcmPushThread extends Thread {
     public GcmPushThread(String apiKey, String token, @NonNull OnGcmResultListener mListener){
         this.apiKey=apiKey;
         this.token=token;
-        this.dataList=dataList;
         this.mListener=mListener;
+    }
+    public GcmPushThread(String apiKey, String token, @NonNull Handler mHandler){
+        this.apiKey=apiKey;
+        this.token=token;
+        this.mHandler=mHandler;
     }
     public GcmPushThread addGcmData(String key, String $value){
         String value=$value;
@@ -145,14 +149,14 @@ public class GcmPushThread extends Thread {
                     if(obj.getInt("success")==1){
                         sendResult(RESULT_OK,res);
                     }else{
-                        sendResult(RESULT_FALIED,res);
+                        sendResult(RESULT_FAILED,res);
                     }
                 }else{
-                    sendResult(RESULT_FALIED,"Not Result");
+                    sendResult(RESULT_FAILED,"Not Result");
                 }
 
             }else{
-                sendResult(RESULT_FALIED,serverResponseMessage + ": " + serverResponseCode);
+                sendResult(RESULT_FAILED,serverResponseMessage + ": " + serverResponseCode);
             }
         }catch(Exception e){
             e.printStackTrace();
