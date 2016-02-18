@@ -432,7 +432,14 @@ public class FragmentTActivity extends FragmentActivity {
                 @Override
                 public void onPageSelected(int position) {
                     setMenuBg(position);
-                    fragments.get(position).onSelect();
+                    for(int i=0; i<fragments.size();i++){
+                        if(i==position){
+                            fragments.get(i).onSelect();
+                        }else{
+                            fragments.get(i).onDisselect();
+                        }
+                    }
+
 //                    mPagerChangedListner.OnChanged(position);
                 }
 

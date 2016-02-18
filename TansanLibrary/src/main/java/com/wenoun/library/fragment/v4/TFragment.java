@@ -50,6 +50,7 @@ public class TFragment extends Fragment {
         startActivity(intent);
     }
     public void onSelect(){}
+    public void onDisselect(){}
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
