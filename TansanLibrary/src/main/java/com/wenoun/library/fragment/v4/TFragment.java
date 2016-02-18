@@ -49,6 +49,7 @@ public class TFragment extends Fragment {
     public void startBackFragmentAct(com.wenoun.library.intent.TIntent intent){
         startActivity(intent);
     }
+    public void onSelect(){}
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {

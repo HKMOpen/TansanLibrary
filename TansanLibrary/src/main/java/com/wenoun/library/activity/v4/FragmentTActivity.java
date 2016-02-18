@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.wenoun.library.R;
+import com.wenoun.library.fragment.v4.TFragment;
 import com.wenoun.library.image.ImageUtils;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class FragmentTActivity extends FragmentActivity {
     private ViewPager mViewPager;
     private PagerAdapter mPagerAdapter;
 
-    private ArrayList<Fragment> fragments=new ArrayList<Fragment>();
+    private ArrayList<TFragment> fragments=new ArrayList<TFragment>();
     private ArrayList<TabItem> tabItems=new ArrayList<TabItem>();
 
     private PagerChangedListener mPagerChangedListner=new PagerChangedListener() {
@@ -319,14 +320,14 @@ public class FragmentTActivity extends FragmentActivity {
         this.isBottom=isBottom;
     }
 
-    protected FragmentTActivity addFragment(int idx, Fragment fragment){
+    protected FragmentTActivity addFragment(int idx, TFragment fragment){
         if(fragments.size()>=idx)
             fragments.add(idx,fragment);
         else
             fragments.add(fragment);
         return this;
     }
-    protected FragmentTActivity addFragment(Fragment fragment){
+    protected FragmentTActivity addFragment(TFragment fragment){
         fragments.add(fragment);
         return this;
     }
@@ -372,27 +373,27 @@ public class FragmentTActivity extends FragmentActivity {
         setMenuFragment(getLayoutInflater().inflate(resID,null),listener);
     }
 
-    public void addMenuFragment(int iconResID, int widthDip, int heightDip, Fragment fragment){
+    public void addMenuFragment(int iconResID, int widthDip, int heightDip, TFragment fragment){
         addMenuFragment(iconResID,widthDip,heightDip,fragment,new TabItem(iconResID,iconResID));
     }
 
-    public void addMenuFragment(int iconResID, int widthDip, int heightDip, Fragment fragment,TabItem tabItem){
+    public void addMenuFragment(int iconResID, int widthDip, int heightDip, TFragment fragment,TabItem tabItem){
         addFragment(fragment);
         addMenuView(iconResID,widthDip,heightDip);
         tabItems.add(tabItem);
     }
 
-    public void addMenuFragment(int iconResID,Fragment fragment){
+    public void addMenuFragment(int iconResID,TFragment fragment){
         addMenuFragment(iconResID,fragment,new TabItem(iconResID,iconResID));
     }
-    public void addMenuFragment(int iconResID,Fragment fragment,TabItem tabItem){
+    public void addMenuFragment(int iconResID,TFragment fragment,TabItem tabItem){
         addMenuFragment(iconResID,50,50,fragment,tabItem);
 //        tabItems.add(tabItem);
     }
-    public void addMenuFragment(TabItem tabItem, Fragment fragment){
+    public void addMenuFragment(TabItem tabItem, TFragment fragment){
         addMenuFragment(tabItem.getUnselectItemID(),fragment);
     }
-    public void addMenuFragment(TabItem tabItem,int widthDip, int heightDip,Fragment fragment){
+    public void addMenuFragment(TabItem tabItem,int widthDip, int heightDip,TFragment fragment){
         addMenuFragment(tabItem.getUnselectItemID(),widthDip,heightDip,fragment,tabItem);
 //        tabItems.add(tabItem);
     }
@@ -431,6 +432,7 @@ public class FragmentTActivity extends FragmentActivity {
                 @Override
                 public void onPageSelected(int position) {
                     setMenuBg(position);
+                    fragments.get(position).onSelect();
 //                    mPagerChangedListner.OnChanged(position);
                 }
 
