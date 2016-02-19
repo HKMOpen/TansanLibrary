@@ -6,7 +6,7 @@
         <item name="android:colorPrimary" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
-        <item name="android:statusBarColor" tools:targetApi="21">#ccc5cdfb</item>
+        <item name="android:statusBarColor" tools:targetApi="21">#ff99a3dd</item>
         <item name="android:background">#00FFFFFF</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
@@ -15,7 +15,7 @@
         <item name="android:colorPrimary" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
-        <item name="android:statusBarColor" tools:targetApi="21">#ccc5cdfb</item>
+        <item name="android:statusBarColor" tools:targetApi="21">#ff99a3dd</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="TranslucentWeMomTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
@@ -23,13 +23,13 @@
         <item name="android:colorPrimary" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:colorPrimaryDark" tools:targetApi="21">#ffc5cdfb</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
-        <item name="android:statusBarColor" tools:targetApi="21">#ccc5cdfb</item>
+        <item name="android:statusBarColor" tools:targetApi="21">#ff99a3dd</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
     <style name="TansanActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
 
-        <item name="android:background">#80c5cdfb</item>
+        <item name="android:background">#ff99a3dd</item>
 
     </style>
     <style name="WeMomActionBar" tools:targetApi="14" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
