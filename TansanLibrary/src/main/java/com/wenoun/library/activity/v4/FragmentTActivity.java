@@ -407,6 +407,7 @@ public class FragmentTActivity extends FragmentActivity {
     }
     private void addMenuView(int iconResID,int widthDip, int heightDip){
         TabView itemRoot=new TabView(ctx,iconResID,widthDip,heightDip);
+        tabViewItems.add(itemRoot);
         menuRoot.addView(itemRoot);
     }
     private void setMenuBg(int selectedId){
