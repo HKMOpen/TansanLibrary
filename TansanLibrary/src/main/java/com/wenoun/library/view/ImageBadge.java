@@ -62,6 +62,9 @@ public class ImageBadge extends RelativeLayout {
         }
 
     }
+    public void setBadgeTextSize(float size){
+        this.badge.setTextSize(size);
+    }
 
     public void setImageResource(int id) {
 //        final int dip50= ImageUtils.dpToPx(getContext(),50);

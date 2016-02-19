@@ -244,6 +244,9 @@ public class FragmentTActivity extends Activity {
         public void setBadge(String cnt){
             tabItem.setBadgeText(cnt);
         }
+        public void setBadgeTextSize(float size){
+            tabItem.setBadgeTextSize(size);
+        }
     }
 //    protected
     @Override
@@ -436,5 +439,13 @@ public class FragmentTActivity extends Activity {
     public void setTabBadge(int pos,String cnt){
         if(pos<=tabViewItems.size())
             tabViewItems.get(pos).setBadge(cnt);
+    }
+    public void setTabBadgeTextSize(float size){
+        for(int i=0; i<tabViewItems.size();i++)
+            setTabBadgeTextSize(i,size);
+    }
+    public void setTabBadgeTextSize(int pos,float size){
+        if(pos<=tabViewItems.size())
+            tabViewItems.get(pos).setBadgeTextSize(size);
     }
 }
