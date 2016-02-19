@@ -7,7 +7,8 @@
         android:layout_height="50dip"
         android:layout_weight="0"
         android:orientation="horizontal"
-        android:background="@color/tblue">
+        android:background="@color/tblue"
+        android:id="@+id/back_fragment_menu_bar_root">
         <ImageView
             android:id="@+id/back_fragment_back_btn"
             android:layout_weight="0"

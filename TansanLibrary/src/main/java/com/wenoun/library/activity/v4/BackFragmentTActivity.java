@@ -25,6 +25,7 @@ public class BackFragmentTActivity extends FragmentActivity {
 
     private LinearLayout menuRoot=null;
     private LinearLayout mainRoot=null;
+    private LinearLayout menuBarRoot=null;
 
     private FragmentManager fragmentManager=null;
 
@@ -40,6 +41,7 @@ public class BackFragmentTActivity extends FragmentActivity {
         fragmentManager = getSupportFragmentManager();
         menuRoot=(LinearLayout)findViewById(R.id.back_fragment_menu_root);
         mainRoot=(LinearLayout)findViewById(R.id.back_fragment_container);
+        menuBarRoot=(LinearLayout)findViewById(R.id.back_fragment_menu_bar_root);
         setTitle("");
         findViewById(R.id.back_fragment_back_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +152,16 @@ public class BackFragmentTActivity extends FragmentActivity {
         if(null!=barRoot) {
             barRoot.removeAllViews();
         }
+    }
+    public void setMenuBar(int layoutResId){
+        menuBarRoot.removeAllViews();
+        menuBarRoot.addView(getLayoutInflater().inflate(layoutResId,null));
+    }
+    public void setMenuBarBackgroundColor(int color){
+        menuBarRoot.setBackgroundColor(color);
+    }
+    public void setMenuBarBackgroundResources(int resId){
+        menuBarRoot.setBackgroundResource(resId);
     }
 
 }
