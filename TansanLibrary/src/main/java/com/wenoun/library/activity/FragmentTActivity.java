@@ -12,11 +12,12 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.wenoun.library.R;
 import com.wenoun.library.image.ImageUtils;
+import com.wenoun.library.view.ImageBadge;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class FragmentTActivity extends Activity {
 
     private ArrayList<Fragment> fragments=new ArrayList<Fragment>();
     private ArrayList<TabItem> tabItems=new ArrayList<TabItem>();
+    private ArrayList<TabView> tabViewItems=new ArrayList<TabView>();
 
     private TabSelectedListener tabSelectedListener=new TabSelectedListener() {
         @Override
@@ -179,7 +181,7 @@ public class FragmentTActivity extends Activity {
         private int height=50;
         private int itemResID=-1;
 //        private LinearLayout tabRoot=null;
-        private ImageView tabItem=null;
+        private ImageBadge tabItem=null;
         public TabView(Context context) {
             super(context);
         }
@@ -222,8 +224,8 @@ public class FragmentTActivity extends Activity {
             setOnClickListener(tabItemListener);
             setGravity(Gravity.CENTER);
             setId(fragments.size()-1);
-            tabItem=new ImageView(ctx);
-            tabItem.setLayoutParams(new LayoutParams(ImageUtils.dpToPx(ctx,width),
+            tabItem=new ImageBadge(ctx);
+            tabItem.setLayoutParams(new RelativeLayout.LayoutParams(ImageUtils.dpToPx(ctx,width),
                     ImageUtils.dpToPx(ctx,height)));
             tabItem.setImageResource(itemResID);
             addView(tabItem);
@@ -235,6 +237,12 @@ public class FragmentTActivity extends Activity {
         }
         public void setTabResource(int backResID){
             setBackgroundResource(backResID);
+        }
+        public void setBadge(int cnt){
+            tabItem.setBadgeText(cnt);
+        }
+        public void setBadge(String cnt){
+            tabItem.setBadgeText(cnt);
         }
     }
 //    protected
@@ -347,6 +355,7 @@ public class FragmentTActivity extends Activity {
     }
     private void addMenuView(int iconResID,int widthDip, int heightDip){
         TabView itemRoot=new TabView(ctx,iconResID,widthDip,heightDip);
+        tabViewItems.add(itemRoot);
         menuRoot.addView(itemRoot);
     }
     private void setMenuBg(int selectedId){
@@ -419,5 +428,13 @@ public class FragmentTActivity extends Activity {
         if(null!=barRoot) {
             barRoot.removeAllViews();
         }
+    }
+    public void setTabBadge(int pos,int cnt){
+        if(pos<=tabViewItems.size())
+            tabViewItems.get(pos).setBadge(cnt);
+    }
+    public void setTabBadge(int pos,String cnt){
+        if(pos<=tabViewItems.size())
+            tabViewItems.get(pos).setBadge(cnt);
     }
 }

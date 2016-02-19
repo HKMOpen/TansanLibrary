@@ -15,12 +15,13 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.wenoun.library.R;
 import com.wenoun.library.fragment.v4.TFragment;
 import com.wenoun.library.image.ImageUtils;
+import com.wenoun.library.view.ImageBadge;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,7 @@ public class FragmentTActivity extends FragmentActivity {
 
     private ArrayList<TFragment> fragments=new ArrayList<TFragment>();
     private ArrayList<TabItem> tabItems=new ArrayList<TabItem>();
+    private ArrayList<TabView> tabViewItems=new ArrayList<TabView>();
 
     private PagerChangedListener mPagerChangedListner=new PagerChangedListener() {
         @Override
@@ -232,7 +234,7 @@ public class FragmentTActivity extends FragmentActivity {
         private int height=50;
         private int itemResID=-1;
 //        private LinearLayout tabRoot=null;
-        private ImageView tabItem=null;
+        private ImageBadge tabItem=null;
         public TabView(Context context) {
             super(context);
         }
@@ -275,8 +277,8 @@ public class FragmentTActivity extends FragmentActivity {
             setOnClickListener(tabItemListener);
             setGravity(Gravity.CENTER);
             setId(fragments.size()-1);
-            tabItem=new ImageView(ctx);
-            tabItem.setLayoutParams(new LinearLayout.LayoutParams(ImageUtils.dpToPx(ctx,width),
+            tabItem=new ImageBadge(ctx);
+            tabItem.setLayoutParams(new RelativeLayout.LayoutParams(ImageUtils.dpToPx(ctx,width),
                     ImageUtils.dpToPx(ctx,height)));
             tabItem.setImageResource(itemResID);
             addView(tabItem);
@@ -288,6 +290,12 @@ public class FragmentTActivity extends FragmentActivity {
         }
         public void setTabResource(int backResID){
             setBackgroundResource(backResID);
+        }
+        public void setBadge(int cnt){
+            tabItem.setBadgeText(cnt);
+        }
+        public void setBadge(String cnt){
+            tabItem.setBadgeText(cnt);
         }
     }
 //    protected
@@ -523,5 +531,13 @@ public class FragmentTActivity extends FragmentActivity {
     }
     public void setOnPagerChangedListener(PagerChangedListener listener){
         this.mPagerChangedListner=listener;
+    }
+    public void setTabBadge(int pos,int cnt){
+        if(pos<=tabViewItems.size())
+            tabViewItems.get(pos).setBadge(cnt);
+    }
+    public void setTabBadge(int pos,String cnt){
+        if(pos<=tabViewItems.size())
+            tabViewItems.get(pos).setBadge(cnt);
     }
 }
