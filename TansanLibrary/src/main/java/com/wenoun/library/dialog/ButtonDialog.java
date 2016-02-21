@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.wenoun.library.R;
+import com.wenoun.library.image.ImageUtils;
 
 //import wenoun.in.library.R;
 
@@ -94,6 +95,7 @@ public class ButtonDialog extends BaseDialog {
 		if(isTr){
 			cancelButton.setBackgroundResource(R.color.tr);
 			confirmButton.setBackgroundResource(R.color.tr);
+			confirmButton.setPadding(ImageUtils.dpToPx(ctx,5),ImageUtils.dpToPx(ctx,5),ImageUtils.dpToPx(ctx,10),ImageUtils.dpToPx(ctx,5));
 		}
 	}
 	TDialogInterface.OnButtonClickListener confirmClickListener=null;
