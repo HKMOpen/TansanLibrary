@@ -32,7 +32,7 @@ public class ButtonDialog extends BaseDialog {
 
 	}
 	public ButtonDialog(Context context){
-		this(context, STYLE_TANSAN);
+		this(context, STYLE_TR);
 	}
 	public ButtonDialog(Context context,int style) {
 		super(context,R.style.TranslucentTheme);
