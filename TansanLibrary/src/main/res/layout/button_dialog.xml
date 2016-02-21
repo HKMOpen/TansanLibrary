@@ -49,20 +49,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_gravity="right"
+            android:gravity="center_vertical">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/tansan_btn"
-                android:id="@+id/confirm_button"
+                android:id="@+id/cancel_button"
                 android:padding="5dip"
-                android:text="@string/confirm"
-                android:textColor="@color/blue"
+                android:maxEms="10"
+                android:singleLine="true"
+                android:text="@string/cancel"
+                android:textColor="@color/red"
                 android:textStyle="bold"
-                android:textSize="20sp"
-                android:minEms="4"/>
+                android:minEms="4"
+                android:textSize="20sp" />
             <View
                 android:layout_width="10dip"
                 android:layout_height="1dip"
@@ -70,16 +72,17 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/tansan_btn"
-                android:id="@+id/cancel_button"
+                android:id="@+id/confirm_button"
                 android:padding="5dip"
-                android:text="@string/cancel"
-                android:textColor="@color/red"
+                android:text="@string/confirm"
+                android:textColor="@color/blue"
+                android:maxEms="10"
+                android:singleLine="true"
                 android:textStyle="bold"
-                android:minEms="4"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:minEms="4"/>
         </LinearLayout>
 
     </LinearLayout>
