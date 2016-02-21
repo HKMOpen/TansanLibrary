@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.wenoun.library.R;
 import com.wenoun.library.activity.v4.BackFragmentTActivity;
+import com.wenoun.library.fragment.TFragmentInterface;
 import com.wenoun.library.intent.v4.TIntent;
 
 /**
@@ -22,7 +23,12 @@ public class BackTFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_base,container,false);
+        setRoot(R.layout.fragment_base,inflater,container);
+        return root;
+    }
+    protected View root;
+    public void setRoot(int resId,LayoutInflater inflater, ViewGroup container){
+        root=inflater.inflate(resId,container,false);
     }
 
     protected Context ctx=null;
@@ -71,5 +77,13 @@ public class BackTFragment extends Fragment {
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
+    }
+    public void setOnClickListener(int viewId, View.OnClickListener listener){
+        if(null!=root)
+            root.findViewById(viewId).setOnClickListener(listener);
+    }
+    public void setOnSetView(int viewId,TFragmentInterface.OnSetViewListener listener){
+        if(null!=root)
+            listener.OnSet(root.findViewById(viewId));
     }
 }
