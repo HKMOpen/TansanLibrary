@@ -49,7 +49,7 @@ public class ContactDialog extends BaseDialog {
 			@Override
 			public void onClick(View v) {
 				Intent it = new Intent(Intent.ACTION_SEND);
-				String[] mailaddr = {"tansan.team@gmail.com","wenoun@wenoun.in"};
+				String[] mailaddr = {"tansan.team@gmail.com","wenoun@wenoun.com"};
 
 				it.setType("plaine/text");
 				it.putExtra(Intent.EXTRA_EMAIL, mailaddr); // 받는사람
