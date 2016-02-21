@@ -14,7 +14,9 @@ import com.wenoun.library.R;
 public class ButtonDialog extends BaseDialog {
 	public static final int STYLE_TANSAN=0;
 	public static final int STYLE_WEMOM=1;
+	public static final int STYLE_TR=2;
 	private int styleId= R.style.TranslucentTheme;
+	private boolean isTr=false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		ctx.setTheme(styleId);
@@ -35,8 +37,10 @@ public class ButtonDialog extends BaseDialog {
 		super(context,R.style.TranslucentTheme);
 		// Dialog 배경을 투명 처리 해준다.
 		this.ctx = getContext();
-		if(style==STYLE_TANSAN) {
+		if(style==STYLE_TANSAN||style==STYLE_TR) {
 			this.styleId=R.style.TranslucentTheme;
+			if(style==STYLE_TR)
+				isTr=true;
 		}else if(style==STYLE_WEMOM){
 			this.styleId=R.style.TranslucentWeMomTheme;
 		}
@@ -87,6 +91,10 @@ public class ButtonDialog extends BaseDialog {
 				}
 			}
 		});
+		if(isTr){
+			cancelButton.setBackgroundResource(R.color.tr);
+			confirmButton.setBackgroundResource(R.color.tr);
+		}
 	}
 	TDialogInterface.OnButtonClickListener confirmClickListener=null;
 	TDialogInterface.OnButtonClickListener cancelClickListener=null;
