@@ -157,8 +157,14 @@ public class BackFragmentTActivity extends Activity {
         }
     }
     public void setMenuBar(int layoutResId){
+        setMenuBar(getLayoutInflater().inflate(layoutResId,null));
+    }
+    public void setMenuBar(View v){
         menuBarRoot.removeAllViews();
-        menuBarRoot.addView(getLayoutInflater().inflate(layoutResId,null));
+        LinearLayout.LayoutParams vParams=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        vParams.weight=1;
+        v.setLayoutParams(vParams);
+        menuBarRoot.addView(v);
     }
     public void setMenuBarBackgroundColor(int color){
         menuBarRoot.setBackgroundColor(color);
