@@ -29,6 +29,7 @@ public class ContactDialog extends BaseDialog {
 	public ContactDialog(Context context,String appName){
 		super(context,R.style.TranslucentTheme);
 		this.ctx=context;
+		this.appName=appName;
 	}
 	private Context ctx;
 	private String appName="";
