@@ -131,4 +131,12 @@ public class TNoti {
         n.flags=notiFlag;
         nm.notify(notiId, n);
     }
+    public void cancelNoti(){
+        NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(notiId);
+    }
+    public static void cancelNoti(Context ctx,int notiId){
+        NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(notiId);
+    }
 }
