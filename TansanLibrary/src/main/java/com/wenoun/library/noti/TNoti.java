@@ -97,6 +97,12 @@ public class TNoti {
         this.notiFlag=flag;
         return this;
     }
+    public TNoti build(){
+        return buildNoti();
+    }
+    public TNoti build(NotificationCompat.Builder builder){
+        return buildNoti(builder);
+    }
     public TNoti buildNoti(){
         builder = new NotificationCompat.Builder(ctx)
                 .setContentTitle(contentTitle)
