@@ -22,6 +22,7 @@ public class TNoti {
     private int number=0;
     private boolean isAutoCancel=true;
     private int notiId=0;
+    private int notiFlag=-1;
     public TNoti(Context ctx,int notiId){
         this.ctx=ctx;
         this.notiId=notiId;
@@ -92,6 +93,10 @@ public class TNoti {
     public NotificationCompat.Builder getBuilder(){
         return builder;
     }
+    public TNoti setNotiFlag(int flag){
+        this.notiFlag=flag;
+        return this;
+    }
     public TNoti buildNoti(){
         builder = new NotificationCompat.Builder(ctx)
                 .setContentTitle(contentTitle)
@@ -108,11 +113,16 @@ public class TNoti {
     }
     public TNoti buildNoti(NotificationCompat.Builder builder){
         this.builder=builder;
+
         return this;
     }
     public void setNoti() {
         NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification  n = builder.build();
+        if(notiFlag==-1){
+            notiFlag=Notification.FLAG_AUTO_CANCEL;
+        }
+        n.flags=notiFlag;
         nm.notify(notiId, n);
     }
 }
