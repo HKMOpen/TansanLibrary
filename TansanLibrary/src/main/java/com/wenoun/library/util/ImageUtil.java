@@ -1,6 +1,15 @@
 package com.wenoun.library.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -31,6 +40,17 @@ public class ImageUtil {
 		g.setCornerRadii(radii);
 		return g;
 	}
+	public static Drawable getDrawable(Context ctx,int backColor, int radius) {
+		GradientDrawable g = new GradientDrawable(
+				GradientDrawable.Orientation.LEFT_RIGHT, new int[] {
+				backColor, backColor });
+		g.setShape(GradientDrawable.RECTANGLE);
+		float[] radii={PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius),PxToDp(ctx,radius)};
+		g.setCornerRadii(radii);
+		return g;
+	}
+
+
 	private static Drawable getTrBack(Context ctx) {
 		int btnColor = 0x000000FF;
 		GradientDrawable g = new GradientDrawable(
@@ -91,6 +111,90 @@ public class ImageUtil {
 		} else {
 			return false;
 		}
+	}
+	public static class RoundedAvatarDrawable extends Drawable {
+		private final Bitmap mBitmap;
+		private final Paint mPaint;
+		private final RectF mRectF;
+		private final int mBitmapWidth;
+		private final int mBitmapHeight;
+        private int radiusPx=0;
+
+		public RoundedAvatarDrawable(Bitmap bitmap,int radiusPx) {
+            this.radiusPx=radiusPx;
+			mBitmap = bitmap;
+			mRectF = new RectF();
+			mPaint = new Paint();
+			mPaint.setAntiAlias(true);
+			mPaint.setDither(true);
+			final BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+			mPaint.setShader(shader);
+
+			mBitmapWidth = mBitmap.getWidth();
+			mBitmapHeight = mBitmap.getHeight();
+		}
+
+		@Override
+		public void draw(Canvas canvas) {
+			canvas.drawRoundRect(mRectF,radiusPx,radiusPx ,mPaint);
+		}
+
+		@Override
+		protected void onBoundsChange(Rect bounds) {
+			super.onBoundsChange(bounds);
+
+			mRectF.set(bounds);
+		}
+
+		@Override
+		public void setAlpha(int alpha) {
+			if (mPaint.getAlpha() != alpha) {
+				mPaint.setAlpha(alpha);
+				invalidateSelf();
+			}
+		}
+
+		@Override
+		public void setColorFilter(ColorFilter cf) {
+			mPaint.setColorFilter(cf);
+		}
+
+		@Override
+		public int getOpacity() {
+			return PixelFormat.TRANSLUCENT;
+		}
+
+		@Override
+		public int getIntrinsicWidth() {
+			return mBitmapWidth;
+		}
+
+		@Override
+		public int getIntrinsicHeight() {
+			return mBitmapHeight;
+		}
+
+		public void setAntiAlias(boolean aa) {
+			mPaint.setAntiAlias(aa);
+			invalidateSelf();
+		}
+
+		@Override
+		public void setFilterBitmap(boolean filter) {
+			mPaint.setFilterBitmap(filter);
+			invalidateSelf();
+		}
+
+		@Override
+		public void setDither(boolean dither) {
+			mPaint.setDither(dither);
+			invalidateSelf();
+		}
+
+		public Bitmap getBitmap() {
+			return mBitmap;
+		}
+
 	}
 
 }

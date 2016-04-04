@@ -15,4 +15,8 @@ public class TDialogInterface {
     public interface OnEditConfirmListener{
         public void onClick(BaseDialog dialog, View v, String input);
     }
+    public interface OnColorPickerListener{
+        void onColorChanged(int color);
+        void onColorPick(BaseDialog dialog,int color);
+    }
 }

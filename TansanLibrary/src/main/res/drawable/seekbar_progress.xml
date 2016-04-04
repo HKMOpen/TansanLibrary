@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@android:id/background"
+        android:height="10dip"
+        android:gravity="center"
+        android:drawable="@drawable/seekbar_progress_track"/>
+    <item android:id="@android:id/secondaryProgress"
+        android:height="10dip"
+        android:gravity="center">
+        <scale
+            android:drawable="@drawable/seekbar_progress_secondary"
+            android:scaleWidth="100%" />
+    </item>
+    <item android:id="@android:id/progress"
+        android:height="10dip"
+        android:gravity="center">
+        <scale
+            android:drawable="@drawable/seekbar_progress_primary"
+            android:scaleWidth="100%" />
+    </item>
+
+</layer-list>
